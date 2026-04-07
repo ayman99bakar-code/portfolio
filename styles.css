@@ -1,0 +1,86 @@
+body {
+  background: black;
+}
+
+.space-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.05), transparent 60%);
+}
+
+/* SUN (HOME BUTTON) */
+#sun {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 90px;
+  height: 90px;
+  transform: translate(-50%, -50%);
+  background: gold;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: black;
+  box-shadow: 0 0 30px yellow;
+  z-index: 10;
+}
+#sun:hover{
+  cursor: pointer;
+}
+/* INFO BOX */
+.info {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  background: rgb(255, 0, 0);
+  border-radius: 10px;
+  z-index: 10;
+}
+
+/* PLANETS */
+.planet {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 12px white;
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+  transition: transform 0.3s;
+}
+
+.planet:hover {
+  transform: translate(-50%, -50%) scale(1.5);
+  cursor: pointer;
+}
+.orbit{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform : translate(-50%, -50%);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 50%;
+  pointer-events: none;
+}
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  background: #ffffff;
+  color: black;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.2s;
+}
+
+button:hover {
+  transform: scale(1.05);
+  background: #eaeaea;
+  cursor: pointer;
+}
