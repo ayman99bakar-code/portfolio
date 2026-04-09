@@ -1,86 +1,193 @@
+
 body {
-  background: black;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: radial-gradient(circle at center, #0b0f1a 0%, #05070d 60%, #000000 100%);
+  color: #eaeaf0;
+   margin: 0;
+  padding: 0;
+  height: 100vh;
 }
 
 .space-bg {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle at center, rgba(255,255,255,0.05), transparent 60%);
+  background-image: radial-gradient(white 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.15;
 }
 
-/* SUN (HOME BUTTON) */
 #sun {
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 90px;
-  height: 90px;
+  width: 100px;
+  height: 100px;
   transform: translate(-50%, -50%);
-  background: gold;
+  background: radial-gradient(circle, #ffd700, #ff8c00);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: bold;
   color: black;
-  box-shadow: 0 0 30px yellow;
+  box-shadow: 0 0 60px rgba(255, 200, 0, 0.8);
   z-index: 10;
+  transition: 0.3s;
 }
-#sun:hover{
+
+#sun:hover {
+  transform: translate(-50%, -50%) scale(1.1);
   cursor: pointer;
 }
-/* INFO BOX */
 .info {
-  position: absolute;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 10px 20px;
-  background: rgb(255, 0, 0);
-  border-radius: 10px;
-  z-index: 10;
-}
-
-/* PLANETS */
-.planet {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  background: white;
-  border-radius: 50%;
-  box-shadow: 0 0 12px white;
-  cursor: pointer;
-  transform: translate(-50%, -50%);
-  transition: transform 0.3s;
-}
-
-.planet:hover {
-  transform: translate(-50%, -50%) scale(1.5);
-  cursor: pointer;
-}
-.orbit{
-  position: absolute;
-  left: 50%;
+  display: none;
+  position: relative;
   top: 50%;
-  transform : translate(-50%, -50%);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 50%;
-  pointer-events: none;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(70vw, 750px);
+  height: 65vh;
+  padding: 20px;
+  background: rgba(20, 25, 40, 0.85);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  z-index: 10;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+.info img {
+  width: 100%;
+  max-width: 400px;
+  height: 300px;
+  border-radius: 10px;
+  margin: 10px 0;
+  object-fit: cover;
+}
+.info p{
+  font-size: clamp(13px, 2vw, 30px);
+}
+.info h2{
+  font-size: clamp(13px, 3vw, 40px);
 }
 button {
+  position: absolute;
+  bottom: 5%;
+  right: 50%;
+  transform: translatex(50%);
+  font-size: clamp(13px, 2vw, 30px);
   padding: 10px 15px;
   border: none;
   border-radius: 8px;
-  background: #ffffff;
-  color: black;
+  background: linear-gradient(135deg, #4cc9f0, #4361ee);
+  color: white;
   cursor: pointer;
   margin-top: 10px;
-  transition: 0.2s;
 }
 
 button:hover {
-  transform: scale(1.05);
-  background: #eaeaea;
+  box-shadow: 0 0 10px #4cc9f0;
+}
+.planet {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
   cursor: pointer;
+  transform: translate(-50%, -50%);
+  transition: transform 0.3s, box-shadow 0.3s;
+  z-index: 9;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.4), 0 0 30px rgba(255, 255, 255, 0.4);
+  
+}
+
+
+.planet:hover {
+  transform: translate(-50%, -50%) scale(1.6);
+  box-shadow: 0 0 25px white;
+  cursor: pointer;
+}
+.orbit {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px dashed rgba(255,255,255,0.1);
+  border-radius: 50%;
+}
+
+#el0{
+  background: #4FC3F7;
+}
+#el1{
+  background: #FF6B81;
+}
+#el2{
+  background: #FFD166;
+}
+#el3{
+  background: #06D6A0;
+}
+#el4{
+  background: #9B5DE5;
+}
+#legend {
+  position: fixed;
+  left: 20px;
+  top: 15%;
+  transform: translateY(-50%);
+  background: transparent;
+  backdrop-filter: blur(10px);
+  padding: 15px 20px;
+  border-radius: 12px;
+  color: white;
+  z-index: 20;
+  width: 180px;
+}
+
+#legend h3 {
+  margin-bottom: 10px;
+  font-size: 14px;
+  text-align: center;
+  opacity: 0.8;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  margin: 8px 0;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.blue { background: #4FC3F7; }
+.red { background: #FF6B81; }
+.yellow { background: #FFD166; }
+.green { background: #06D6A0; }
+.purple { background: #9B5DE5; }
+
+.close-btn {
+  position: absolute;
+  top: 5px;
+  right: 25px;
+  background: transparent;
+  width: 5%;
+  height: 5%;
+  padding: 0;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: #4cc9f0;
+  box-shadow: none;
 }
